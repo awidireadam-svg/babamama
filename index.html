@@ -6,115 +6,122 @@
     <title>BloxZone | The Ultimate Roblox Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* 1. PALETTE SETUP (Document Matched Neon Theme) */
+        /* Modern Color Variables & Dark Base Theme */
         :root {
-            --primary-color: #00e1ff; /* Electric Cyan */
-            --secondary-color: #deff9a; /* Bright Lime Green */
-            --bg-dark: #0a0a12;
-            --card-bg: #131322;
-            --text-color: #daffde;
-            --pure-white: #ffffff;
+            --primary-cyan: #00e1ff;
+            --accent-lime: #deff9a;
+            --bg-deep-space: #06060b;
+            --bg-card-dark: #11111f;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3c2;
         }
 
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-deep-space);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* 2. NAVIGATION HEADER */
+        /* Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background-color: rgba(19, 19, 34, 0.98);
-            border-bottom: 2px solid var(--primary-color);
+            padding: 20px 6%;
+            background-color: rgba(17, 17, 31, 0.96);
+            border-bottom: 2px solid var(--primary-cyan);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(8px);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--pure-white);
-            letter-spacing: 1px;
+        .brand-logo {
+            font-size: 26px;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .logo span {
-            color: var(--primary-color);
-            text-shadow: 0 0 10px var(--primary-color);
+        .brand-logo span {
+            color: var(--primary-cyan);
+            text-shadow: 0 0 12px rgba(0, 225, 255, 0.6);
         }
 
         nav a {
-            color: var(--pure-white);
+            color: var(--text-primary);
             text-decoration: none;
-            margin-left: 30px;
+            margin-left: 25px;
             font-weight: 600;
-            font-size: 16px;
-            transition: 0.3s ease;
+            font-size: 15px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--secondary-color);
+            color: var(--accent-lime);
         }
 
-        /* 3. HERO SHOWCASE HERO SECTION */
-        .hero {
+        /* Hero Core Summary Section */
+        .hero-banner {
             text-align: center;
-            padding: 120px 20px;
-            background: radial-gradient(circle at top, #1a1a35 0%, var(--bg-dark) 70%);
-            border-bottom: 3px dashed var(--secondary-color);
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, #17172e 0%, var(--bg-deep-space) 80%);
+            border-bottom: 2px dashed var(--accent-lime);
         }
 
-        .hero h1 {
-            font-size: 54px;
-            color: var(--pure-white);
-            margin: 0 0 20px 0;
+        .hero-banner h1 {
+            font-size: 56px;
+            font-weight: 900;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 800;
+            margin-bottom: 15px;
         }
 
-        .hero h1 span {
-            color: var(--primary-color);
+        .hero-banner h1 span {
+            color: var(--primary-cyan);
+            text-shadow: 0 0 15px rgba(0, 225, 255, 0.4);
         }
 
-        .hero p {
+        .hero-banner p {
             font-size: 20px;
-            color: #b0b0bc;
-            max-width: 700px;
-            margin: 0 auto 35px auto;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
         }
 
-        /* 4. MAIN CONTENT CONTAINER */
-        .container {
+        /* Standardized Layout Container */
+        .wrapper {
             max-width: 1200px;
             margin: 0 auto;
             padding: 60px 20px;
         }
 
-        .section-title {
-            font-size: 36px;
-            color: var(--secondary-color);
-            margin-bottom: 50px;
+        .block-title {
+            font-size: 32px;
+            color: var(--accent-lime);
             text-transform: uppercase;
-            border-left: 8px solid var(--primary-color);
-            padding-left: 20px;
-            letter-spacing: 1.5px;
+            margin-bottom: 40px;
+            border-left: 6px solid var(--primary-cyan);
+            padding-left: 15px;
+            letter-spacing: 1px;
         }
 
-        /* 5. EXPERIENCES TWIN GRID DISPLAY */
-        .twin-grid {
+        /* Section: Featured Experiences Card Grid */
+        .experience-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap:
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        @media (
