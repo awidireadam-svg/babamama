@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloxZone | أكواد وروبوكس مجاني</title>
+    <title>BloxZone | Free Codes & Robux Platform</title>
     <style>
-        /* إعدادات الألوان المتطورة والمضيئة */
+        /* Exact color scheme pulled from your visual references */
         :root {
             --primary-color: #00e1ff;
-            --secondary-color: #deff9a; /* اللون الفسفوري الجديد من الصورة */
+            --secondary-color: #deff9a; /* The exact bright lime/green accent from your image */
             --bg-dark: #0a0a12;
             --card-bg: #131322;
             --text-color: #ffffff;
@@ -20,9 +20,10 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        /* شريط التنقل */
+        /* Navbar Layout */
         header {
             display: flex;
             justify-content: space-between;
@@ -45,7 +46,7 @@
         nav a {
             color: var(--text-color);
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 25px;
             font-weight: 600;
             transition: 0.3s;
         }
@@ -54,7 +55,7 @@
             color: var(--secondary-color);
         }
 
-        /* القسم الرئيسي */
+        /* Hero Splash Banner */
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -64,35 +65,36 @@
 
         .hero h1 {
             font-size: 42px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .hero h1 span {
             color: var(--secondary-color);
         }
 
-        /* الحاوية الرئيسية */
+        /* Layout Container */
         .container {
             max-width: 1200px;
             margin: 50px auto;
             padding: 0 20px;
         }
 
+        /* Precise title accent alignment matching the screenshot styling */
         .section-title {
             font-size: 32px;
             margin-bottom: 40px;
-            position: relative;
             text-transform: uppercase;
-            border-right: 6px solid var(--primary-color);
-            padding-right: 15px;
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            letter-spacing: 1px;
         }
 
-        /* تصميم قسم الأكواد والبطاقات مع الصور الجديدة */
+        /* Interactive Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .card {
@@ -146,236 +148,4 @@
 
         .btn-btn {
             background-color: var(--primary-color);
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .btn-btn:hover {
-            background-color: #fff;
-            box-shadow: 0 0 10px var(--primary-color);
-        }
-
-        /* ------------------------------------------------------ */
-        /* تصميم قسم CLAIM FREE ROBUX المأخوذ من صورتك بالظبط */
-        /* ------------------------------------------------------ */
-        .claim-section {
-            margin-top: 80px;
-            background-color: var(--bg-dark);
-        }
-
-        .claim-title {
-            font-size: 36px;
-            color: var(--secondary-color);
-            font-weight: bold;
-            border-right: 6px solid var(--primary-color);
-            padding-right: 15px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .claim-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .claim-container { grid-template-columns: 1fr; }
-        }
-
-        .claim-left h3 {
-            color: var(--secondary-color);
-            font-size: 18px;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .claim-left p {
-            color: #b0b0bc;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        /* صندوق الإدخال التفاعلي المضيء */
-        .input-box-wrapper {
-            background-color: #131322;
-            border: 2px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 40px 20px;
-            text-align: center;
-            max-width: 450px;
-            box-shadow: 0 0 15px rgba(0, 225, 255, 0.1);
-        }
-
-        .input-box-wrapper input {
-            background-color: #000000;
-            border: 1px solid var(--secondary-color);
-            color: #fff;
-            font-size: 18px;
-            padding: 15px;
-            width: 80%;
-            border-radius: 8px;
-            text-align: center;
-            outline: none;
-            margin-bottom: 20px;
-        }
-
-        .enter-btn {
-            background-color: var(--secondary-color);
-            color: #000000;
-            font-weight: bold;
-            font-size: 16px;
-            padding: 12px 35px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .enter-btn:hover {
-            background-color: #fff;
-            box-shadow: 0 0 15px var(--secondary-color);
-        }
-
-        .disclaimer {
-            font-size: 14px;
-            color: #71718a;
-            margin-top: 25px;
-        }
-
-        /* غلاف صورة الهدية الأيمن */
-        .claim-right-card {
-            border: 2px solid var(--secondary-color);
-            border-radius: 15px;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000000;
-            height: 400px;
-        }
-
-        .claim-right-card img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #05050a;
-            margin-top: 80px;
-            color: #555566;
-            font-size: 14px;
-            border-top: 1px solid #131322;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo">🎮 BloxZone</div>
-        <nav>
-            <a href="#">الرئيسية</a>
-            <a href="#codes">أكواد الألعاب</a>
-            <a href="#robux">شحن روبوكس مجاني</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h1>مرحباً بك في أضخم منصة <span>أكواد وروبوكس</span> حقيقية!</h1>
-        <p>احصل على تحديثات يومية فورية لألعابك المفضلة وشارك في السحوبات الموثوقة.</p>
-    </section>
-
-    <div class="container">
-        
-        <h2 class="section-title" id="codes">أحدث أكواد الألعاب الشغالة</h2>
-        <div class="grid">
-            
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Blox Fruits" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title">Blox Fruits ⚔️</h3>
-                    <p>استخدم هذا الكود للحصول على استرجاع للنقاط مجاناً ومضاعفة الخبرة XP.</p>
-                    <div class="code-box">
-                        <span class="code-text">KITT_RESET</span>
-                        <button class="btn-btn" onclick="copyCode('KITT_RESET')">نسخ</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80" alt="Grow a Garden" class="card-img">
-                <div class="card-body">
-                    <h3 class="card-title">Grow a Garden 🌱</h3>
-                    <p>كود حصري يمنحك 500 عملة ذهبية وحزمة بذور نادرة لتسريع نمو حديقتك.</p>
-                    <div class="code-box">
-                        <span class="code-text">GARDEN2026</span>
-                        <button class="btn-btn" onclick="copyCode('GARDEN2026')">نسخ</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <section class="claim-section" id="robux">
-            <div class="claim-title">CLAIM FREE ROBUX</div>
-            
-            <div class="claim-container">
-                
-                <div class="claim-left">
-                    <h3>ENTER THE DAILY RAFFLE</h3>
-                    <p>انضم إلى أكثر من 10,000 فائز أسبوعياً! ببساطة قم بكتابة اسم المستخدم الخاص بك في روبلوكس بالأسفل للدخول تلقائياً في سحب الـ Robux المجاني اليومي.</p>
-                    
-                    <div class="input-box-wrapper">
-                        <input type="text" id="robloxUser" placeholder="Roblox Username" autocomplete="off">
-                        <br>
-                        <button class="enter-btn" onclick="submitGiveaway()">ENTER GIVEAWAY</button>
-                    </div>
-                    
-                    <div class="disclaimer">*لا نطلب كلمة المرور الخاصة بك أبداً. يتم توزيع المكافآت والبطاقات عبر نظام Group Payouts الآمن.</div>
-                </div>
-
-                <div class="claim-right-card">
-                    <img src="https://images.unsplash.com/photo-1614680376593-902f74fa0d41?auto=format&fit=crop&w=500&q=80" alt="Robux Gift Card 50 USD">
-                </div>
-
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة © 2026 BloxZone | هذا الموقع منصة ترفيهية مستقلة ولا يتبع لشركة Roblox Corporation الرسمية.</p>
-    </footer>
-
-    <script>
-        // دالة نسخ الأكواد
-        function copyCode(code) {
-            navigator.clipboard.writeText(code);
-            alert("تم نسخ الكود بنجاح واستعداده للصق داخل اللعبة: " + code);
-        }
-
-        // دالة تفعيل الاشتراك في السحب من صورتك
-        function submitGiveaway() {
-            var username = document.getElementById("robloxUser").value;
-            if(username.trim() === "") {
-                alert("من فضلك أدخل اسم حسابك في روبلوكس أولاً!");
-            } else {
-                alert("تهانينا لـ " + username + "! تم تسجيل اسمك في سحب الـ Robux اليومي بنجاح. حظاً موفقاً!");
-            }
-        }
-    </script>
-</body>
-</html>
+            color
