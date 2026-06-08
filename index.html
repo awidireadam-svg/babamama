@@ -3,39 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claim Rewards</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>BloxZone | The Ultimate Roblox Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. PALETTE SETUP (Document Matched Neon Theme) */
+        :root {
+            --primary-color: #00e1ff; /* Electric Cyan */
+            --secondary-color: #deff9a; /* Bright Lime Green */
+            --bg-dark: #0a0a12;
+            --card-bg: #131322;
+            --text-color: #daffde;
+            --pure-white: #ffffff;
+        }
 
-    <header class="navbar">
-        <nav>
-            <a href="#">👤 PROFILE</a>
-            <a href="#">⭐ EARN</a>
-            <a href="#">🛒 WITHDRAW</a>
-            <a href="#">🎮 GAMES</a>
-            <a href="#">📅 DAILY</a>
-            <a href="#">💰 EXTRA R$</a>
-            <a href="#">❓ FAQ</a>
-            <a href="#">💬 SUPPORT</a>
-        </nav>
-    </header>
+        * {
+            box-sizing: border-box;
+        }
 
-    <main class="main-container">
-        <div class="login-box">
-            <div class="login-header">LOGIN</div>
-            
-            <div class="login-body">
-                <h2>Write your roblox username</h2>
-                <p class="warning-text">Note: We will never ask for your password</p>
-                
-                <input type="text" id="username" placeholder="Username" autocomplete="off">
-                
-                <button id="submit-btn">OK</button>
-            </div>
-        </div>
-    </main>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-    <script src="script.js"></script>
-</body>
-</html>
+        /* 2. NAVIGATION HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: rgba(19, 19, 34, 0.98);
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--pure-white);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        nav a {
+            color: var(--pure-white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* 3. HERO SHOWCASE HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: radial-gradient(circle at top, #1a1a35 0%, var(--bg-dark) 70%);
+            border-bottom: 3px dashed var(--secondary-color);
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            color: var(--pure-white);
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b0b0bc;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            line-height: 1.6;
+        }
+
+        /* 4. MAIN CONTENT CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            border-left: 8px solid var(--primary-color);
+            padding-left: 20px;
+            letter-spacing: 1.5px;
+        }
+
+        /* 5. EXPERIENCES TWIN GRID DISPLAY */
+        .twin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap:
