@@ -3,73 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLX.GG - Earn Free Robux</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>BloxRewards - Free Robux & Game Codes</title>
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: rgba(11, 12, 16, 0.95);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #1f2833;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #66fcf1;
+        }
+
+        /* Hero Section (Image 6 - Treasure Chest) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('https://unsplash.com') no-repeat center center/cover; /* Replace with Image 6 link */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
+        .hero h1 span {
+            color: #66fcf1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            color: #c5a059; /* Gold accent */
+            font-weight: 500;
+        }
+
+        .cta-btn {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
+        }
+
+        /* Grid Containers */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 60px 0 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #66fcf1;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Game & Reward Cards */
+        .card {
+            background-color: #1f2833;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s, border 0.3s;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #66fcf1;
+        }
+
+        .card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Specific Background Images for Cards */
+        .img-bloxfruits { background-image: url('https://unsplash.com'); } /* Replace with Image 2 */
+        .img-garden { background-image: url('https://unsplash.com'); } /* Replace with Image 3 */
+        .img-steer { background-image: url('https://unsplash.com'); } /* Replace with Image 1 */
+        .img-vip { background-image: url('https://unsplash.com'); } /* Replace with Image 4 */
+        .img-robux { background-image: url('https://unsplash.com'); } /* Replace with Image 5 */
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #66fcf1;
+        }
+
+        .card-content p {
+            color: #a9b7c6;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            background-color: transparent;
+            color: #66fcf1;
+            border: 2px solid #66fcf1;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .card-btn:hover {
+            background-color: #66fcf1;
+            color: #0b0c10;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0c10;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            border-top: 2px solid #1f2833;
+            color: #45f3ff;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+            .nav-links { display: none; } /* Can be turned into a burger menu later */
+            .hero h1 { font-size: 2.3rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">BLX<span>.GG</span></div>
-            <nav class="nav-links">
-                <a href="#">Earn</a>
-                <a href="#">Rewards & Promocodes</a>
-                <a href="#">Event</a>
-            </nav>
-            <div class="nav-actions">
-                <button class="lang-btn"><i class="fas fa-globe"></i> English <i class="fas fa-chevron-down"></i></button>
-                <button class="login-btn">Login</button>
-            </div>
-        </div>
+    <!-- Header / Navigation Menu -->
+    <header>
+        <div class="logo">BloxRewards</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#codes">Game Codes</a></li>
+            <li><a href="#robux">Get Robux</a></li>
+        </ul>
     </header>
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Earn free <span>ROBUX</span> by doing easy tasks</h1>
-                <p>Complete simple tasks like surveys, videos and app downloads to earn coins. Redeem your coins for Robux, gift cards and more!</p>
-                <button class="cta-btn"><i class="fas fa-gamepad"></i> Start earning</button>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.rbxcdn.com/9da369e94473f309995166f07e5f9bf7.png" alt="Roblox Character" class="main-char">
-            </div>
-        </div>
-        
-        <div class="curve-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
+    <!-- Hero Section (Using Image 6 Concept) -->
+    <section class="hero" id="hero">
+        <h1>Claim Your Free <span>Robux</span> & Codes</h1>
+        <p>Get instant access to active redeem codes for your favorite games and boost your account balance safely today.</p>
+        <button class="cta-btn" onclick="document.getElementById('codes').scrollIntoView({behavior: 'smooth'});">Explore Rewards</button>
     </section>
 
-    <section class="how-it-works">
-        <div class="section-header">
-            <h2>How it works</h2>
-            <p>Earn real rewards like Robux and gift cards by completing simple online tasks</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="card card-purple">
+    <!-- Game Codes Section -->
+    <section id="codes">
+        <h2 class="section-title">Active Game Codes</h2>
+        <div class="grid-container">
+            
+            <!-- Card 1: Blox Fruits (Using Image 2 Concept) -->
+            <div class="card">
+                <div class="card-img img-bloxfruits"></div>
                 <div class="card-content">
-                    <img src="https://images.rbxcdn.com/6c2cf50239b0ee4093c4e51141df9043.png" alt="Roblox Character with Coin" class="card-thumb">
-                    <div class="card-text">
-                        <h3>Complete easy tasks</h3>
-                        <p>The best way to earn coins is by completing easy tasks brought to you by our sponsors. These tasks consist of playing mobile games or filling out short effortless surveys – it's a breeze! Redeem your coins for Robux, gift cards and more.</p>
-                    </div>
+                    <h3>Blox Fruits Codes</h3>
+                    <p>Unlock 2x XP boosts, stat resets, and exclusive in-game titles instantly to dominate the seas.</p>
+                    <button class="card-btn">Redeem Codes</button>
                 </div>
             </div>
 
-            <div class="card card-dark">
+            <!-- Card 2: Grow a Garden (Using Image 3 Concept) -->
+            <div class="card">
+                <div class="card-img img-garden"></div>
                 <div class="card-content">
-                    <div class="card-text">
-                        <h3>Easily redeem promocodes!</h3>
-                        <p>We regularly give away free promocodes that reward you with coins. <a href="#">Redeem promocodes</a> to boost your balance instantly!</p>
-                    </div>
+                    <h3>Grow a Garden Codes</h3>
+                    <p>Get free seeds, powerful fertilizers, and unique blocky companion pets to expand your beautiful garden.</p>
+                    <button class="card-btn">Redeem Codes</button>
                 </div>
             </div>
+
+            <!-- Card 3: Steer Rabbit / Pixel Universe (Using Image 1 Concept) -->
+            <div class="card">
+                <div class="card-img img-steer"></div>
+                <div class="card-content">
+                    <h3>Steer Rabbit Codes</h3>
+                    <p>Collect special pixelated items, coins, and secret cosmetics in this colorful block mashup world.</p>
+                    <button class="card-btn">Redeem Codes</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
-</body>
-</html>
+    <!-- Robux & Premium Section -->
+    <section id="robux">
+        <h2 class="section-title">Robux & Premium Rewards</h2>
+        <div class="grid-container">
+            
+            <!-- Card 4: VIP Outfits (Using Image 4 Concept) -->
+            <div class="card">
+                <div class="card-img img-vip"></div>
+                <div class="card-content">
+                    <h3>Exclusive VIP Outfits</h3>
+                    <p>Access legendary golden items, rare hats, and executive packages to make your avatar stand out.</p>
+                    <button class="card-btn">Claim Outfit</button>
+                </div>
+            </div>
+
+            <!-- Card 5: Power-up Robux (Using Image 5 Concept) -->
+            <div class="card">
