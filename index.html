@@ -66,7 +66,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(11,12,16,0.9), rgba(31,40,51,0.8)), url('https://picsum.photos') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('hero.jpg') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -168,22 +168,12 @@
             position: relative;
         }
 
-        /* Fixed Image Links with Rich Gradients as Backup */
-        .img-bloxfruits { 
-            background: linear-gradient(45deg, rgba(255, 65, 54, 0.4), rgba(0, 116, 217, 0.4)), url('https://picsum.photos');
-        } 
-        .img-garden { 
-            background: linear-gradient(45deg, rgba(46, 204, 113, 0.4), rgba(241, 196, 15, 0.4)), url('https://picsum.photos');
-        } 
-        .img-steer { 
-            background: linear-gradient(45deg, rgba(155, 89, 182, 0.4), rgba(52, 152, 219, 0.4)), url('https://picsum.photos');
-        } 
-        .img-vip { 
-            background: linear-gradient(45deg, rgba(230, 126, 34, 0.4), rgba(241, 196, 15, 0.4)), url('https://picsum.photos');
-        } 
-        .img-robux { 
-            background: linear-gradient(45deg, rgba(0, 204, 255, 0.4), rgba(102, 252, 241, 0.4)), url('https://picsum.photos');
-        } 
+        /* Local Images Links */
+        .img-bloxfruits { background-image: url('bloxfruits.jpg'); } 
+        .img-garden { background-image: url('garden.jpg'); } 
+        .img-steer { background-image: url('steer.jpg'); } 
+        .img-vip { background-image: url('vip.jpg'); } 
+        .img-robux { background-image: url('robux.jpg'); } 
 
         .card-content {
             padding: 25px;
@@ -234,6 +224,139 @@
             font-size: 14px;
         }
 
+        /* POP-UP MODAL BOX SYSTEM */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: #1f2833;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            border: 2px solid #66fcf1;
+            box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
+            transform: scale(0.7);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-box h2 {
+            font-size: 26px;
+            color: #66fcf1;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .modal-box p {
+            color: #c5a059;
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: #0b0c10;
+            border: 2px solid #45f3ff;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #66fcf1;
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
+        }
+
+        .modal-submit-btn {
+            background: #66fcf1;
+            color: #0b0c10;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .modal-submit-btn:hover {
+            background: #45f3ff;
+            transform: translateY(-2px);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #a9b7c6;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #ff4136;
+        }
+
+        /* Loading Spinner Animation */
+        .loader {
+            display: none;
+            border: 4px solid #0b0c10;
+            border-radius: 50%;
+            border-top: 4px solid #66fcf1;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto 0;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-msg {
+            display: none;
+            color: #2ecc71;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header { padding: 20px; }
@@ -256,66 +379,3 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <h1>Claim Your Free <span>Robux</span> & Codes</h1>
-        <p>Get instant access to active redeem codes for your favorite games and boost your account balance safely today.</p>
-        <button class="cta-btn" onclick="document.getElementById('codes').scrollIntoView({behavior: 'smooth'});">Explore Rewards</button>
-    </section>
-
-    <!-- Game Codes Section -->
-    <section id="codes">
-        <h2 class="section-title">Active Game Codes</h2>
-        <div class="grid-container">
-            
-            <!-- Card 1: Blox Fruits -->
-            <div class="card">
-                <div class="card-img img-bloxfruits"></div>
-                <div class="card-content">
-                    <h3>Blox Fruits Codes</h3>
-                    <p>Unlock 2x XP boosts, stat resets, and exclusive in-game titles instantly to dominate the seas.</p>
-                    <button class="card-btn">Redeem Codes</button>
-                </div>
-            </div>
-
-            <!-- Card 2: Grow a Garden -->
-            <div class="card">
-                <div class="card-img img-garden"></div>
-                <div class="card-content">
-                    <h3>Grow a Garden Codes</h3>
-                    <p>Get free seeds, powerful fertilizers, and unique blocky companion pets to expand your beautiful garden.</p>
-                    <button class="card-btn">Redeem Codes</button>
-                </div>
-            </div>
-
-            <!-- Card 3: Steer Rabbit -->
-            <div class="card">
-                <div class="card-img img-steer"></div>
-                <div class="card-content">
-                    <h3>Steer Rabbit Codes</h3>
-                    <p>Collect special pixelated items, coins, and secret cosmetics in this colorful block mashup world.</p>
-                    <button class="card-btn">Redeem Codes</button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Robux & Premium Section -->
-    <section id="robux">
-        <h2 class="section-title">Robux & Premium Rewards</h2>
-        <div class="grid-container">
-            
-            <!-- Card 4: VIP Outfits -->
-            <div class="card">
-                <div class="card-img img-vip"></div>
-                <div class="card-content">
-                    <h3>Exclusive VIP Outfits</h3>
-                    <p>Access legendary golden items, rare hats, and executive packages to make your avatar stand out.</p>
-                    <button class="card-btn">Claim Outfit</button>
-                </div>
-            </div>
-
-            <!-- Card 5: Power-up Robux -->
-            <div class="card">
-                <div class="card-img img-robux"></div>
-                <div class="card-content">
-                    <h3>Daily Robux Drops</h3>
