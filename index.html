@@ -63,10 +63,10 @@
             color: #66fcf1;
         }
 
-        /* Hero Section (Roblox Characters Background) */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(11,12,16,0.9), rgba(31,40,51,0.8)), url('https://picsum.photos') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -168,12 +168,22 @@
             position: relative;
         }
 
-        /* Fixed Working Direct Image Links */
-        .img-bloxfruits { background-image: url('https://unsplash.com'); } 
-        .img-garden { background-image: url('https://unsplash.com'); } 
-        .img-steer { background-image: url('https://unsplash.com'); } 
-        .img-vip { background-image: url('https://unsplash.com'); } 
-        .img-robux { background-image: url('https://unsplash.com'); } 
+        /* Fixed Image Links with Rich Gradients as Backup */
+        .img-bloxfruits { 
+            background: linear-gradient(45deg, rgba(255, 65, 54, 0.4), rgba(0, 116, 217, 0.4)), url('https://picsum.photos');
+        } 
+        .img-garden { 
+            background: linear-gradient(45deg, rgba(46, 204, 113, 0.4), rgba(241, 196, 15, 0.4)), url('https://picsum.photos');
+        } 
+        .img-steer { 
+            background: linear-gradient(45deg, rgba(155, 89, 182, 0.4), rgba(52, 152, 219, 0.4)), url('https://picsum.photos');
+        } 
+        .img-vip { 
+            background: linear-gradient(45deg, rgba(230, 126, 34, 0.4), rgba(241, 196, 15, 0.4)), url('https://picsum.photos');
+        } 
+        .img-robux { 
+            background: linear-gradient(45deg, rgba(0, 204, 255, 0.4), rgba(102, 252, 241, 0.4)), url('https://picsum.photos');
+        } 
 
         .card-content {
             padding: 25px;
@@ -309,7 +319,3 @@
                 <div class="card-img img-robux"></div>
                 <div class="card-content">
                     <h3>Daily Robux Drops</h3>
-                    <p>Participate in our secure server events and daily pools to transfer Robux directly to your profile.</p>
-                    <button class="card-btn">Join Event</button>
-                </div>
-            </div>
