@@ -3,379 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BloxRewards - Free Robux & Game Codes</title>
+    <title>Roblox Rewards Hub - Get Free Robux & Game Codes</title>
     <style>
-        /* CSS Reset & General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Color Palette & Global Styles */
+        :root {
+            --bg-color: #18191c;
+            --card-bg: #23252a;
+            --accent-color: #00b0ff;
+            --text-color: #ffffff;
+            --gold-color: #ffd700;
         }
 
         body {
-            background-color: #0b0c10;
-            color: #fff;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* Navigation Bar */
         header {
-            background-color: rgba(11, 12, 16, 0.95);
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #1f2833;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #66fcf1;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-size: 16px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #66fcf1;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('hero.jpg') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: var(--card-bg);
+            padding: 25px;
             text-align: center;
-            padding: 0 20px;
-            margin-top: 60px;
+            border-bottom: 3px solid var(--accent-color);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
-        }
-
-        .hero h1 span {
-            color: #66fcf1;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            color: #c5a059;
-            font-weight: 500;
-        }
-
-        .cta-btn {
-            background-color: #66fcf1;
-            color: #0b0c10;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(102, 252, 241, 0.8);
-        }
-
-        /* Grid Containers */
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin: 60px 0 30px;
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 4. Username Input Section */
+        .user-section {
+            background: linear-gradient(135deg, #1e272e, #050505);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            border: 1px solid #333;
+        }
+
+        .user-section h2 {
+            margin-top: 0;
+            color: var(--gold-color);
+        }
+
+        .user-input {
+            padding: 12px 20px;
+            width: 80%;
+            max-width: 400px;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            background-color: #111;
             color: #fff;
-            position: relative;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            margin-bottom: 15px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: #66fcf1;
-            margin: 10px auto 0;
-            border-radius: 2px;
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        .btn:hover {
+            background-color: #0088cc;
+            transform: scale(1.05);
+        }
+
+        /* 5. Grid Layout for Cards (Robux & Games) */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        /* Game & Reward Cards */
         .card {
-            background-color: #1f2833;
-            border-radius: 15px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s, border 0.3s;
-            border: 1px solid transparent;
-            display: flex;
-            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+            transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            border-color: #66fcf1;
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
         }
 
-        .card-img {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        /* High quality placeholder images */
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #333;
         }
-
-        /* Local Images Links */
-        .img-bloxfruits { background-image: url('bloxfruits.jpg'); } 
-        .img-garden { background-image: url('garden.jpg'); } 
-        .img-steer { background-image: url('steer.jpg'); } 
-        .img-vip { background-image: url('vip.jpg'); } 
-        .img-robux { background-image: url('robux.jpg'); } 
 
         .card-content {
-            padding: 25px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            padding: 20px;
         }
 
-        .card-content h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #66fcf1;
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-color);
         }
 
-        .card-content p {
-            color: #a9b7c6;
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .card-btn {
-            background-color: transparent;
-            color: #66fcf1;
-            border: 2px solid #66fcf1;
-            padding: 10px 20px;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .card-btn:hover {
-            background-color: #66fcf1;
-            color: #0b0c10;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0b0c10;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-top: 2px solid #1f2833;
-            color: #45f3ff;
-            font-size: 14px;
-        }
-
-        /* POP-UP MODAL BOX SYSTEM */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            backdrop-filter: blur(8px);
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-box {
-            background: #1f2833;
-            padding: 40px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 450px;
-            text-align: center;
-            border: 2px solid #66fcf1;
-            box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
-            transform: scale(0.7);
-            transition: transform 0.4s ease;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
-        }
-
-        .modal-box h2 {
-            font-size: 26px;
-            color: #66fcf1;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .modal-box p {
-            color: #c5a059;
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 15px 20px;
-            background: #0b0c10;
-            border: 2px solid #45f3ff;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            text-align: center;
-            transition: border-color 0.3s;
-        }
-
-        .input-group input:focus {
-            border-color: #66fcf1;
-            box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
-        }
-
-        .modal-submit-btn {
-            background: #66fcf1;
-            color: #0b0c10;
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
+        .code-display {
+            background-color: #111;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
             font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .modal-submit-btn:hover {
-            background: #45f3ff;
-            transform: translateY(-2px);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            color: #a9b7c6;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-modal:hover {
-            color: #ff4136;
-        }
-
-        /* Loading Spinner Animation */
-        .loader {
-            display: none;
-            border: 4px solid #0b0c10;
-            border-radius: 50%;
-            border-top: 4px solid #66fcf1;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto 0;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .success-msg {
-            display: none;
-            color: #2ecc71;
-            font-weight: bold;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header { padding: 20px; }
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.3rem; }
+            color: var(--gold-color);
+            margin: 15px 0;
+            border: 1px dashed var(--gold-color);
+            display: none; /* Hidden until username is connected */
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Navigation Menu -->
     <header>
-        <div class="logo">BloxRewards</div>
-        <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#codes">Game Codes</a></li>
-            <li><a href="#robux">Get Robux</a></li>
-        </ul>
+        <h1>🎮 Roblox Rewards Hub 🎮</h1>
+        <p>Claim free Robux and the latest working codes for your favorite games</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <div class="container">
+        
+        <!-- 4. Username Input Field -->
+        <div class="user-section">
+            <h2>👤 Connect Your Roblox Account</h2>
+            <p>Enter your Roblox username below to start unlocking rewards.</p>
+            <input type="text" id="username" class="user-input" placeholder="Enter Username Here...">
+            <br>
+            <button class="btn" onclick="connectUser()">Link Account</button>
+            <p id="welcome-msg" style="color: #4caf50; font-weight: bold; margin-top: 15px;"></p>
+        </div>
+
+        <div class="grid">
+            
+            <!-- 2. Get Robux Section -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Robux">
+                <div class="card-content">
+                    <h3>💎 Claim Free Robux</h3>
+                    <p>Instantly request 400 Robux to be sent to your linked account.</p>
+                    <button class="btn" onclick="claimRobux()">Claim Robux</button>
+                </div>
+            </div>
+
+            <!-- 3. Blox Fruits Codes -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Blox Fruits">
+                <div class="card-content">
+                    <h3>⚔️ Blox Fruits Codes</h3>
+                    <p>Get double experience boosts and status reset codes.</p>
+                    <div id="code-blox" class="code-display">EXP_BOOST2026</div>
+                    <button class="btn" onclick="showCode('code-blox')">Reveal Code</button>
+                </div>
+            </div>
+
+            <!-- 3. Grow a Garden 2 Codes -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Grow a Garden 2">
+                <div class="card-content">
+                    <h3>🌱 Grow a Garden 2</h3>
+                    <p>Unlock rare seeds, unique speed boosts, and tools.</p>
+                    <div id="code-garden" class="code-display">GARDEN_FREE55</div>
+                    <button class="btn" onclick="showCode('code-garden')">Reveal Code</button>
+                </div>
+            </div>
+
+            <!-- 3. Steal a Brainrot Codes -->
+            <div class="card">
+                <img src="https://unsplash.com" alt="Steal a Brainrot">
+                <div class="card-content">
+                    <h3>🧠 Steal a Brainrot</h3>
+                    <p>Unlock free in-game memes, coins, and funny avatars.</p>
+                    <div id="code-brainrot" class="code-display">SIGMA_ROT99</div>
+                    <button class="btn" onclick="showCode('code-brainrot')">Reveal Code</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Form Validation & Logic
+        function connectUser() {
+            const username = document.getElementById('username').value;
+            if (username.trim() === "") {
+                alert("Please enter a valid Roblox username!");
+            } else {
+                document.getElementById('welcome-msg').innerText = `✅ Account successfully linked: ${username}`;
+            }
+        }
+
+        function claimRobux() {
+            const username = document.getElementById('username').value;
+            if (username.trim() === "") {
+                alert("You must enter and link your username first!");
+            } else {
+                alert(`Processing request... 400 Robux is being sent to: ${username}!`);
+            }
+        }
+
+        function showCode(codeId) {
+            const username = document.getElementById('username').value;
+            if (username.trim() === "") {
+                alert("Please connect your username above to unlock game codes!");
+                return;
+            }
+            const codeDiv = document.getElementById(codeId);
+            codeDiv.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
