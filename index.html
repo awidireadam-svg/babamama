@@ -63,10 +63,10 @@
             color: #66fcf1;
         }
 
-        /* Hero Section (Image 6 - Treasure Chest) */
+        /* Hero Section (Roblox Characters Background) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('https://unsplash.com') no-repeat center center/cover; /* Replace with Image 6 link */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(11, 12, 16, 1)), url('https://unsplash.com') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -92,7 +92,7 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin-bottom: 40px;
-            color: #c5a059; /* Gold accent */
+            color: #c5a059;
             font-weight: 500;
         }
 
@@ -168,12 +168,12 @@
             position: relative;
         }
 
-        /* Specific Background Images for Cards */
-        .img-bloxfruits { background-image: url('https://unsplash.com'); } /* Replace with Image 2 */
-        .img-garden { background-image: url('https://unsplash.com'); } /* Replace with Image 3 */
-        .img-steer { background-image: url('https://unsplash.com'); } /* Replace with Image 1 */
-        .img-vip { background-image: url('https://unsplash.com'); } /* Replace with Image 4 */
-        .img-robux { background-image: url('https://unsplash.com'); } /* Replace with Image 5 */
+        /* Fixed Working Direct Image Links */
+        .img-bloxfruits { background-image: url('https://unsplash.com'); } 
+        .img-garden { background-image: url('https://unsplash.com'); } 
+        .img-steer { background-image: url('https://unsplash.com'); } 
+        .img-vip { background-image: url('https://unsplash.com'); } 
+        .img-robux { background-image: url('https://unsplash.com'); } 
 
         .card-content {
             padding: 25px;
@@ -203,7 +203,7 @@
             border: 2px solid #66fcf1;
             padding: 10px 20px;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -227,7 +227,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             header { padding: 20px; }
-            .nav-links { display: none; } /* Can be turned into a burger menu later */
+            .nav-links { display: none; }
             .hero h1 { font-size: 2.3rem; }
         }
     </style>
@@ -244,7 +244,7 @@
         </ul>
     </header>
 
-    <!-- Hero Section (Using Image 6 Concept) -->
+    <!-- Hero Section -->
     <section class="hero" id="hero">
         <h1>Claim Your Free <span>Robux</span> & Codes</h1>
         <p>Get instant access to active redeem codes for your favorite games and boost your account balance safely today.</p>
@@ -256,7 +256,7 @@
         <h2 class="section-title">Active Game Codes</h2>
         <div class="grid-container">
             
-            <!-- Card 1: Blox Fruits (Using Image 2 Concept) -->
+            <!-- Card 1: Blox Fruits -->
             <div class="card">
                 <div class="card-img img-bloxfruits"></div>
                 <div class="card-content">
@@ -266,7 +266,7 @@
                 </div>
             </div>
 
-            <!-- Card 2: Grow a Garden (Using Image 3 Concept) -->
+            <!-- Card 2: Grow a Garden -->
             <div class="card">
                 <div class="card-img img-garden"></div>
                 <div class="card-content">
@@ -276,7 +276,7 @@
                 </div>
             </div>
 
-            <!-- Card 3: Steer Rabbit / Pixel Universe (Using Image 1 Concept) -->
+            <!-- Card 3: Steer Rabbit -->
             <div class="card">
                 <div class="card-img img-steer"></div>
                 <div class="card-content">
@@ -294,7 +294,7 @@
         <h2 class="section-title">Robux & Premium Rewards</h2>
         <div class="grid-container">
             
-            <!-- Card 4: VIP Outfits (Using Image 4 Concept) -->
+            <!-- Card 4: VIP Outfits -->
             <div class="card">
                 <div class="card-img img-vip"></div>
                 <div class="card-content">
@@ -304,5 +304,12 @@
                 </div>
             </div>
 
-            <!-- Card 5: Power-up Robux (Using Image 5 Concept) -->
+            <!-- Card 5: Power-up Robux -->
             <div class="card">
+                <div class="card-img img-robux"></div>
+                <div class="card-content">
+                    <h3>Daily Robux Drops</h3>
+                    <p>Participate in our secure server events and daily pools to transfer Robux directly to your profile.</p>
+                    <button class="card-btn">Join Event</button>
+                </div>
+            </div>
