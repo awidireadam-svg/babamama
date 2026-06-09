@@ -3,73 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLX.GG - Earn Free Robux</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <title>BloxZone | The Ultimate Roblox Hub</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --secondary-bg: #1f2833;
+            --text-color: #c5c6c7;
+            --title-color: #ffffff;
+            --accent-cyan: #45f3ff;
+            --accent-green: #00ff87;
+            --accent-purple: #8a2be2;
+        }
 
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="logo">BLX<span>.GG</span></div>
-            <nav class="nav-links">
-                <a href="#">Earn</a>
-                <a href="#">Rewards & Promocodes</a>
-                <a href="#">Event</a>
-            </nav>
-            <div class="nav-actions">
-                <button class="lang-btn"><i class="fas fa-globe"></i> English <i class="fas fa-chevron-down"></i></button>
-                <button class="login-btn">Login</button>
-            </div>
-        </div>
-    </header>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Earn free <span>ROBUX</span> by doing easy tasks</h1>
-                <p>Complete simple tasks like surveys, videos and app downloads to earn coins. Redeem your coins for Robux, gift cards and more!</p>
-                <button class="cta-btn"><i class="fas fa-gamepad"></i> Start earning</button>
-            </div>
-            <div class="hero-image">
-                <img src="treasure-chest.jpeg" alt="Roblox Characters with Treasure Chest" class="main-char">
-            </div>
-        </div>
-        
-        <div class="curve-divider">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" class="shape-fill"></path>
-            </svg>
-        </div>
-    </section>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
 
-    <section class="how-it-works">
-        <div class="section-header">
-            <h2>How it works</h2>
-            <p>Earn real rewards like Robux and gift cards by completing simple online tasks</p>
-        </div>
+        header {
+            background: linear-gradient(135deg, #111, #222);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-cyan);
+        }
 
-        <div class="features-grid">
-            <div class="card card-purple">
-                <div class="card-content">
-                    <img src="https://images.rbxcdn.com/6c2cf50239b0ee4093c4e51141df9043.png" alt="Roblox Character with Coin" class="card-thumb">
-                    <div class="card-text">
-                        <h3>Complete easy tasks</h3>
-                        <p>The best way to earn coins is by completing easy tasks brought to you by our sponsors. These tasks consist of playing mobile games or filling out short effortless surveys – it's a breeze! Redeem your coins for Robux, gift cards and more.</p>
-                    </div>
-                </div>
-            </div>
+        header h1 {
+            color: var(--title-color);
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
 
-            <div class="card card-dark">
-                <div class="card-content">
-                    <div class="card-text">
-                        <h3>Easily redeem promocodes!</h3>
-                        <p>We regularly give away free promocodes that reward you with coins. <a href="#">Redeem promocodes</a> to boost your balance instantly!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent-cyan);
+        }
 
-</body>
-</html>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin: 40px 0;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: var(--title-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+        }
+
+        /* Experience Grid Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: #151c24;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #2d3748;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: var(--title-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #151c24;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        th {
+            background-color: #25303f;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #1e2936;
+        }
+
+        .code-badge {
+            background-color: #2d3748;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Giveaway Section */
+        .giveaway-box {
+            background: linear-gradient(145deg, #2
